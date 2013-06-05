@@ -407,7 +407,194 @@
 				?>
 				
 				<img src='../imagenes/estadisticas/usuariosUltimaSemana.png' title='Usuarios conectados la ultima semana' /><br/>
+				<?
+					//$DataSet = new pData;
+					//Fecha actual
+					$consulta="SELECT SYSDATE();";
+					$resultado=mysql_query($consulta);
+					$fecha0="";
+					while($fila=mysql_fetch_array($resultado)){
+						$fecha0=$fila[0];
+					}
+					$fecha0=substr($fecha0, 0, 10);
+					$fech = $fecha0;
+					$fecha = explode("-", $fech);
+					$dia = $fecha[2];
+					$mes = $fecha[1];
+					$anno = $fecha[0];
+					$fecha0=$fecha[2]."-".$fecha[1]."-".$fecha[0];
+					
+					//Cantidad fecha actual
+					$consulta="SELECT COUNT(DATEDIFF(SYSDATE(),FECHA_HORA)) FROM VENTAS WHERE DATEDIFF(SYSDATE(),FECHA_HORA)=0 GROUP BY FECHA_HORA;";
+					$resultado=mysql_query($consulta);
+					$cantidad0=mysql_num_rows($resultado);
+					
+					//Dia anterior
+					$consulta="SELECT DATE_SUB(SYSDATE(), INTERVAL 1 DAY);";
+					$resultado=mysql_query($consulta);
+					$fecha1="";
+					while($fila=mysql_fetch_array($resultado)){
+						$fecha1=$fila[0];
+					}
+					$fecha1=substr($fecha1, 0, 10);
+					$fech = $fecha1;
+					$fecha = explode("-", $fech);
+					$dia = $fecha[2];
+					$mes = $fecha[1];
+					$anno = $fecha[0];
+					$fecha1=$fecha[2]."-".$fecha[1]."-".$fecha[0];
+					
+					//Cantidad dia anterior
+					$consulta="SELECT COUNT(DATEDIFF(SYSDATE(),FECHA_HORA)) FROM VENTAS WHERE DATEDIFF(SYSDATE(),FECHA_HORA)=1 GROUP BY FECHA_HORA;";
+					$resultado=mysql_query($consulta);
+					$cantidad1=mysql_num_rows($resultado);
+
+					//Dos dias antes
+					$consulta="SELECT DATE_SUB(SYSDATE(), INTERVAL 2 DAY);";
+					$resultado=mysql_query($consulta);
+					$fecha2="";
+					while($fila=mysql_fetch_array($resultado)){
+						$fecha2=$fila[0];
+					}
+					$fecha2=substr($fecha2, 0, 10);
+					$fech = $fecha2;
+					$fecha = explode("-", $fech);
+					$dia = $fecha[2];
+					$mes = $fecha[1];
+					$anno = $fecha[0];
+					$fecha2=$fecha[2]."-".$fecha[1]."-".$fecha[0];
+					
+					//Cantidad dos dias antes
+					$consulta="SELECT COUNT(DATEDIFF(SYSDATE(),FECHA_HORA)) FROM VENTAS WHERE DATEDIFF(SYSDATE(),FECHA_HORA)=2 GROUP BY FECHA_HORA;";
+					$resultado=mysql_query($consulta);
+					$cantidad2=mysql_num_rows($resultado);
+					
+					//Tres dias antes
+					$consulta="SELECT DATE_SUB(SYSDATE(), INTERVAL 3 DAY);";
+					$resultado=mysql_query($consulta);
+					$fecha3="";
+					while($fila=mysql_fetch_array($resultado)){
+						$fecha3=$fila[0];
+					}
+					$fecha3=substr($fecha3, 0, 10);
+					$fech = $fecha3;
+					$fecha = explode("-", $fech);
+					$dia = $fecha[2];
+					$mes = $fecha[1];
+					$anno = $fecha[0];
+					$fecha3=$fecha[2]."-".$fecha[1]."-".$fecha[0];
+					
+					//Cantidad tres dias antes
+					$consulta="SELECT COUNT(DATEDIFF(SYSDATE(),FECHA_HORA)) FROM VENTAS WHERE DATEDIFF(SYSDATE(),FECHA_HORA)=3 GROUP BY FECHA_HORA;";
+					$resultado=mysql_query($consulta);
+					$cantidad3=mysql_num_rows($resultado);
+					
+					//Cuatro dias antes
+					$consulta="SELECT DATE_SUB(SYSDATE(), INTERVAL 4 DAY);";
+					$resultado=mysql_query($consulta);
+					$fecha4="";
+					while($fila=mysql_fetch_array($resultado)){
+						$fecha4=$fila[0];
+					}
+					$fecha4=substr($fecha4, 0, 10);
+					$fech = $fecha4;
+					$fecha = explode("-", $fech);
+					$dia = $fecha[2];
+					$mes = $fecha[1];
+					$anno = $fecha[0];
+					$fecha4=$fecha[2]."-".$fecha[1]."-".$fecha[0];
+					
+					//Cantidad cuatro dias antes
+					$consulta="SELECT COUNT(DATEDIFF(SYSDATE(),FECHA_HORA)) FROM VENTAS WHERE DATEDIFF(SYSDATE(),FECHA_HORA)=4 GROUP BY FECHA_HORA;";
+					$resultado=mysql_query($consulta);
+					$cantidad4=mysql_num_rows($resultado);
+					
+					//Cinco dias antes
+					$consulta="SELECT DATE_SUB(SYSDATE(), INTERVAL 5 DAY);";
+					$resultado=mysql_query($consulta);
+					$fecha5="";
+					while($fila=mysql_fetch_array($resultado)){
+						$fecha5=$fila[0];
+					}
+					$fecha5=substr($fecha5, 0, 10);
+					$fech = $fecha5;
+					$fecha = explode("-", $fech);
+					$dia = $fecha[2];
+					$mes = $fecha[1];
+					$anno = $fecha[0];
+					$fecha5=$fecha[2]."-".$fecha[1]."-".$fecha[0];
+					
+					//Cantidad cinco dias antes
+					$consulta="SELECT COUNT(DATEDIFF(SYSDATE(),FECHA_HORA)) FROM VENTAS WHERE DATEDIFF(SYSDATE(),FECHA_HORA)=5 GROUP BY FECHA_HORA;";
+					$resultado=mysql_query($consulta);
+					$cantidad5=mysql_num_rows($resultado);
+					
+					//Seis dias antes
+					$consulta="SELECT DATE_SUB(SYSDATE(), INTERVAL 6 DAY);";
+					$resultado=mysql_query($consulta);
+					$fecha6="";
+					while($fila=mysql_fetch_array($resultado)){
+						$fecha6=$fila[0];
+					}
+					$fecha6=substr($fecha6, 0, 10);
+					$fech = $fecha6;
+					$fecha = explode("-", $fech);
+					$dia = $fecha[2];
+					$mes = $fecha[1];
+					$anno = $fecha[0];
+					$fecha6=$fecha[2]."-".$fecha[1]."-".$fecha[0];
+					
+					//Cantidad seis dias antes
+					$consulta="SELECT COUNT(DATEDIFF(SYSDATE(),FECHA_HORA)) FROM VENTAS WHERE DATEDIFF(SYSDATE(),FECHA_HORA)=6 GROUP BY FECHA_HORA;";
+					$resultado=mysql_query($consulta);
+					$cantidad6=mysql_num_rows($resultado);
+					
+					$DataSet = new pData;
+					$DataSet->AddPoint(array($cantidad6,$cantidad5,$cantidad4,$cantidad3,$cantidad2,$cantidad1,$cantidad0),"Serie2");
+					$DataSet->AddPoint(array($fecha6,$fecha5,$fecha4,$fecha3,$fecha2,$fecha1,$fecha0),"Serie3");
+					$DataSet->SetAbsciseLabelSerie("Serie3");
+					$DataSet->SetSerieName("Ventas","Serie2");
+				       
+					// Initialise the graph
+					$Test = new pChart(730,230);
+					$Test->drawGraphAreaGradient(240,240,240,10,TARGET_BACKGROUND);
+				       
+					// Prepare the graph area
+					$Test->setFontProperties("pChart/Fonts/tahoma.ttf",8);
+					$Test->setGraphArea(60,40,650,190);
+				       
+					// Initialise graph area
+					$Test->setFontProperties("pChart/Fonts/tahoma.ttf",8);
+				       
+					// Clear the scale
+					$Test->clearScale();
+				       
+					// Draw the 2nd graph
+					$DataSet->AddSerie("Serie2");
+					$DataSet->SetYAxisName("Ventas");
+					$Test->drawRightScale($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_NORMAL,0,0,0,TRUE,0,0);
+					$Test->drawGrid(4,TRUE,0,0,0,2);
+					$Test->setShadowProperties(3,3,0,0,0,30,4);
+					$Test->drawCubicCurve($DataSet->GetData(),$DataSet->GetDataDescription());
+					$Test->clearShadow();
+					$Test->drawFilledCubicCurve($DataSet->GetData(),$DataSet->GetDataDescription(),.1,30);
+					$Test->drawPlotGraph($DataSet->GetData(),$DataSet->GetDataDescription(),3,2,255,255,255);
+				       
+					// Write the legend (box less)
+					$Test->setFontProperties("pChart/Fonts/tahoma.ttf",8);
+					$Test->drawLegend(530,5,$DataSet->GetDataDescription(),0,0,0,0,0,0,0,0,0,FALSE);
+				       
+					// Write the title
+					$Test->setFontProperties("pChart/Fonts/MankSans.ttf",18);
+					$Test->setShadowProperties(1,1,0,0,0);
+					$Test->drawTitle(0,0,"Ventas de la última semana",2,2,2,660,30,TRUE);
+					$Test->clearShadow();
+				       
+					// Render the picture
+					$Test->Render("../imagenes/estadisticas/ventasUltimaSemana.png");
+				?>
 				
+				<img style="margin-top: 25px;" src='../imagenes/estadisticas/ventasUltimaSemana.png' title='Ventas de la ultima semana' /><br/>
 			</section>
 			<aside>
 				<h1>Estadisticas</h1>
