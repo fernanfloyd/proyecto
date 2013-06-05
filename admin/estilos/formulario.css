@@ -1,0 +1,39 @@
+
+.caja1{
+	width: 25%;
+	float: left;
+	line-height: 1.5em;
+	}
+
+.caja2{
+	width: 75%
+	float: right;
+	line-height: 1.5em;
+	}
+	
+.caja3{
+	width: 25%;
+	float: left;
+	line-height: 1.5em;
+	}	
+	
+.caja4{
+	width: 75%
+	float: right;
+	line-height: 1.5em;
+	}	
+label{
+	font-family: 'Ropa Sans', cursive;	
+	}	
+	
+.cintillo a{
+	color: black;
+	
+	}
+	
+.obligatorio{
+	font-size: .7em;
+	font-style: italic;	
+	}	
+	
+		

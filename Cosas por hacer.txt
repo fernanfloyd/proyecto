@@ -1,0 +1,13 @@
+-cambiar hover cuando no existen comentarios, usuarios, etc...
+
+-Al crear un usuario, noticia, etc, que salga un alert en vez de la pagina respuesta
+
+-cambiar degradado de la cabecera y el pie
+
+-cambiar estilo aside estadisticas
+
+-crear pdf
+
+-cambiar nombre al crear pdf (No se si esta hecho ya)
+
+-Poner todos los alerts y confirms del david

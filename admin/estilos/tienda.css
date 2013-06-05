@@ -1,0 +1,98 @@
+.tienda{
+	width: 765px;
+}
+
+
+.cajitasTienda{
+	width: 765px;
+	float: left;
+	margin-bottom: 30px;
+	margin-left:15px;
+	margin-top: 15px;
+	/*border: 1px solid green;*/
+	overflow: auto;
+}
+
+
+.cajitasTienda:hover{
+	background-color: #F0ECEC;
+	cursor: pointer;
+}
+
+
+
+.caja_foto_tienda{
+	width: 100px;
+	/*height: 100px;*/
+	/*border: 1px solid red;*/
+	float: left;
+}
+.caja_foto_tienda img{
+	width: 100px;
+	height: 100px;
+}
+
+.caja_texto_tienda{
+	margin-left: 10px;
+	width: 330px;
+	overflow: auto;
+	float: left;
+	padding: 5px;
+	padding-top: 0;
+	/*border: 1px solid blue;*/
+}
+
+.caja_texto_duracion_tienda{
+	margin-left: 10px;
+	width: 150px;
+	overflow: auto;
+	float: left;
+	padding: 5px;
+	padding-top: 0;
+	/*border: 1px solid blue;*/
+}
+
+.caja_texto_tienda, .caja_texto_duracion_tienda{
+	padding-top: 25px;
+}
+
+
+.caja_carrito img{
+	width: 40px;
+	height: 40px;
+	/*border: 1px solid yellow;*/
+	margin-top: 30px;
+	margin-left: 25px;
+}
+.caja_carrito img:hover{
+	width: 50px;
+	height: 50px;
+	/*border: 1px solid yellow;*/
+	margin-top: 25px;
+	margin-left: 20px;
+}
+
+.caja_texto_tienda .precio{
+	margin-top: 5px;
+}
+
+.caja_texto_tienda .carrito{
+	margin-top: 5px;
+	float: right;
+	
+}
+
+.azul{
+	color: #3871C2;
+}
+
+#cliente{
+	overflow: auto;
+	margin-bottom: 20px;
+}
+#cliente p + p{
+	margin-bottom: 20px;
+}
+#cliente + hr{
+	margin-bottom: 20px;
+}
