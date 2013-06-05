@@ -27,13 +27,12 @@ function numUsuarios(){
 function numVentas(){
 	nuevaConexionBd();
 	$num="";
-	$consulta="SELECT COUNT(*) FROM VENTAS;";
+	$consulta="SELECT COUNT(*) FROM VENTAS GROUP BY FECHA_HORA;";
 	$resultado=mysql_query($consulta);
-	while($fila=mysql_fetch_array($resultado)){
-		$num=$fila[0];
-	}
+	$num=mysql_num_rows($resultado);
 	return $num;
-}// OBTENER NUMERO DE NOTICIAS
+}
+// OBTENER NUMERO DE NOTICIAS
 function numNoticias(){
 	nuevaConexionBd();
 	$num="";
