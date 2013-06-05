@@ -101,7 +101,7 @@
 				<hr />
 				<div id="cliente">
 					<?php
-						echo "<div class='cajaMostrar' style='height:auto;'>";
+						echo "<div class='cajaMostrar' style='min-height:220px;'>";
 							echo "<div class='cajaDatos'>";
 							$datos=obtenerTodoUsuario($idU);
 							if($datos['n_tarjeta']==""){

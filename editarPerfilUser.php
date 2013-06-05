@@ -75,7 +75,7 @@
 					$datos=obtenerTodoUsuario($id);
 					//esto va sin formato, solo los datos
 					echo "<h1>Datos de registro</h1><hr />";
-					echo "<div class='cajaMostrar'>";
+					echo "<div class='cajaMostrar' style='min-height:auto;'>";
 						echo "<div class='cajaDatos'>";
 							echo "<form name='formModPass' method='post' action='modificarU.php'>";
 								echo "<div class='reg_izq'>";
@@ -102,7 +102,7 @@
 						echo "</div>";
 					echo "</div>";
 					echo "<h1>Datos personales</h1><hr />";
-					echo "<div class='cajaMostrar'>";
+					echo "<div class='cajaMostrar' style='min-height:auto;'>";
 						echo "<div class='cajaDatos'>";
 							echo "<form name='formModDatosPer' method='post' action='modificarU.php'>";
 								echo "<div class='reg_izq'>";
@@ -144,7 +144,7 @@
 						echo "</div>";
 					echo "</div>";
 					echo "<h1>Datos de envío y pago</h1><hr />";
-					echo "<div class='cajaMostrar'>";
+					echo "<div class='cajaMostrar' style='min-height:auto;'>";
 						echo "<div class='cajaDatos'>";
 							if($datos['n_tarjeta']==""){
 								echo "<p>No hay ningún número de tarjeta asociado a esta cuenta de usuario</p>";
@@ -183,7 +183,7 @@
 											echo "<label for='cod'><b>Código postal:</b></label><br />";
 											echo "<label for='codNuevo'><b>Código postal nuevo:</b></label><br />";
 											echo "<label for='tar'><b>Número de tarjeta:</b></label><br />";
-											echo "<label for='tarNueva'><b>Número de tarjeta nuevo:</b></label><br />";
+											echo "<label for='tarNueva'><b>Nuevo num. tarj.:</b></label><br />";
 										echo "</p>";
 									echo "</div>";
 									echo "<div class='reg_der'>";

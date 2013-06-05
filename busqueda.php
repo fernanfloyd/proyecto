@@ -190,7 +190,7 @@
 						echo "<div class='cajitasIzq'>";
 							echo "<p>Lo sentimos, no hay ninguna busqueda relacionada</p>";
 						echo "</div>";
-						echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
+						echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
 					}
 				}
 				?>
