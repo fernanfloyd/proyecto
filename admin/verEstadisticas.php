@@ -196,7 +196,7 @@
 				       
 					$Test->Render("../imagenes/estadisticas/peliculasPorGeneros.png");
 				?>
-				<img src='../imagenes/estadisticas/peliculasPorGeneros.png' title='Estadistica de películas por géneros' /><br/>
+				<img src='../imagenes/estadisticas/peliculasPorGeneros.png' title='Estadistica de peliculas por generos' /><br/>
 				
 				<?
 					//$DataSet = new pData;
@@ -406,7 +406,7 @@
 					$Test->Render("../imagenes/estadisticas/usuariosUltimaSemana.png");
 				?>
 				
-				<img src='../imagenes/estadisticas/usuariosUltimaSemana.png' title='Estadistica de películas por géneros' /><br/>
+				<img src='../imagenes/estadisticas/usuariosUltimaSemana.png' title='Usuarios conectados la ultima semana' /><br/>
 				
 			</section>
 			<aside>
