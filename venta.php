@@ -117,5 +117,6 @@
 			$archivo="pdfs/venta".$nick."_".$num.".pdf";
 			$pdf->Output($archivo);
 			return $archivo;
+							
 		}
 	?>
