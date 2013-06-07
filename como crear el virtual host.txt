@@ -1,0 +1,62 @@
+En xampp/apache/conf/httpd.conf descomentar la linea 479: #Include "conf/extra/httpd-vhosts.conf"
+
+
+
+
+
+
+
+
+
+
+
+
+En xampp/apache/conf/extra/httpd-vhosts.conf:
+
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/proyecto"
+    ServerName impactfilm.dev
+    
+    <Directory "C:/xampp/htdocs/proyecto">
+	DirectoryIndex "index.php"
+	Order allow,deny
+	Allow from all
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs"
+    ServerName localhost
+</VirtualHost>
+
+
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs"
+    ServerName localhost
+</VirtualHost>
+
+
+
+
+
+
+
+
+
+
+
+
+En windows/system32/drivers/etc/hosts añadir la linea: tuDireccionIp     impactfilm.dev
+
+
+
+
+
+
+
+
+
+
+
+Reiniciar Apache
+
