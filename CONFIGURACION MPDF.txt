@@ -1,0 +1,7 @@
+En el archivo config.php que esta dentro de la carpeta MPDF, hay que cambiar en la linea 81 lo siguiente
+
+$this->ignore_invalid_utf8 = false;
+
+
+
+Simplemente cambiarle el valor a true, porque sino te crea el pdf en blanco.
