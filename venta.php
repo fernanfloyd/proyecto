@@ -41,7 +41,7 @@
 			$anio = $fecha[0];
 			$peliculas="";
 			foreach($cadena as $i){
-				$peliculas.='<tr><td>'.$i["cantidad"].'</td><td>'.$i["pelicula"].'</td><td>'.$i["precio"].'</td></tr>';
+				$peliculas.='<tr><td>'.$i["cantidad"].'</td><td>'.utf8_decode($i["pelicula"]).'</td><td>'.$i["precio"].'</td></tr>';
 			}
 			$cuerpo = '
 		<style>
