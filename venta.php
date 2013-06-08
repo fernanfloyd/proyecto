@@ -128,7 +128,7 @@
 		Pago con Tarjeta
 		<br />
 		<div class="separador" style="margin-top:20;"></div>
-		<p style="text-align:right;width:100%;"><b>Total: </b>'.$precioT.'€</p>
+		<p style="text-align:right;width:100%;"><b>Total: </b>'.$precioT.'</p>
 		<div class="cabecera" style="margin-top:20;"></div>
 		</body>
 		
@@ -241,7 +241,7 @@
 			$mes = $fecha[1];
 			$anio = $fecha[0];
 		//$mpdf->SetDisplayMode('fullpage');
-		$mpdf->SetHeader('Factura de compra ImpactFilm||'); //'.$dia.'-'.$mes.'-'.$anio);
+		$mpdf->SetHeader('Factura de compra ImpactFilm||'.$dia.'-'.$mes.'-'.$anio);
 		$mpdf->SetFooter('{1}');	/* defines footer for Odd and Even Pages - placed at Outer margin */
 		
 		$mpdf->WriteHTML($cuerpo);	// Separate Paragraphs  defined by font
