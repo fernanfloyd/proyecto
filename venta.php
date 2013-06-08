@@ -1,7 +1,8 @@
 <?php
 		session_start();
 		include("funciones/funciones.php");
-		require('fpdf/fpdf.php');
+		//require('fpdf/fpdf.php');
+		include("MPDF/mpdf.php");
 		include_once('PHPMailer/class.phpmailer.php'); //incluimos la ruta a la clase phpmailer
 
 		$pedido=json_decode($_GET['pedido'],true);
@@ -9,33 +10,148 @@
 		$nick=$_SESSION['usuario'];
 		$id=extraerIdUsuario($nick);
 		$fecha=fechaHora();
-		
-		$cadena="Texto pal mail: ";
+		$precioT=0;
+		$cadena=Array();
+		$x=0;
 		foreach($pedido as $i){
 			$peli=obtenerNombrePelicula($i['id']);
 			 insertarVenta($i['id'], $id, $peli, $nick, $fecha, $i['cantidad']);
-			 $cadena.=$peli."-".$nick."-".$fecha."-".$i['cantidad']."\n";
+			 //$cadena.=$peli."-".$nick."-".$fecha."-".$i['cantidad']."\n";
+			 $cadena[$x]['pelicula']=$peli;
+			 $cadena[$x]['cantidad']=$i['cantidad'];
+			 $cadena[$x]['precio']=$i['precio'];
+			 $precioT=$precioT+floatval($i['precio']);
+			 $x++;
 		}
+		$cuerpo=crearHTML($cadena, $precioT, $fecha, $id);
 		$mail=obtenerMail($id);
-		enviarmail($cadena,$mail,$id, $nick, $fecha);
+		enviarmail($cuerpo,$mail, $fecha,$nick);
 		
 		echo "<script type='text/javascript' src='funciones/comprar.js'></script>";
 		echo "<script>";
 			echo "elimLista();";
 		echo "</script>";
 		
-		function enviarmail($cadena,$mail,$id, $nick, $fecha){
-				$archivo=crearPdf($cadena, $id, $nick, $fecha);
+		function crearHTML($cadena, $precioT, $fecha, $id){
+			$datos=obtenerTodoUsuario($id);
+			$fecha=substr($fecha,0,10);
+			$fecha = explode ("-", $fecha);
+			$dia = $fecha[2];
+			$mes = $fecha[1];
+			$anio = $fecha[0];
+			$peliculas="";
+			foreach($cadena as $i){
+				$peliculas.='<tr><td>'.$i["cantidad"].'</td><td>'.$i["pelicula"].'</td><td>'.$i["precio"].'</td></tr>';
+			}
+			$cuerpo = '
+		<style>
+		header{
+			width: 100%;
+			height: 75px;
+			background: #a50200;
+			background: -o-linear-gradient(top, #3871C2, #21477E);
+			background: -webkit-linear-gradient(top, #3871C2, #21477E);
+			background: -moz-linear-gradient(top, #3871C2, #21477E);
+			background: -ms-linear-gradient(top, #3871C2, #21477E);
+			background:  linear-gradient(top, #3871C2, #21477E);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#a50200", endColorstr="#f20800",GradientType=0 );
+			font-family: "Aldrich", sans-serif;
+			font-weight: 400;
+			color: white;
+			margin-bottom: 10px;
+			padding-top: 8px;
+		}
+		header p{
+		    margin: 0 auto;
+		}
+		.cabecera{
+			margin-bottom: 15px;
+			width:100%;
+			text-align:center;
+			color:white;
+			background: -o-linear-gradient(top, #3871C2, #21477E);
+			background: -webkit-linear-gradient(top, #3871C2, #21477E);
+			background: -moz-linear-gradient(top, #3871C2, #21477E);
+			background: -ms-linear-gradient(top, #3871C2, #21477E);
+			background:  linear-gradient(top, #3871C2, #21477E);
+		}
+		
+		.separador{
+			width:100%;
+			height:5;
+			text-align:center;
+			color:white;
+			background: -o-linear-gradient(top, #3871C2, #21477E);
+			background: -webkit-linear-gradient(top, #3871C2, #21477E);
+			background: -moz-linear-gradient(top, #3871C2, #21477E);
+			background: -ms-linear-gradient(top, #3871C2, #21477E);
+			background:  linear-gradient(top, #3871C2, #21477E);
+		}
+		
+		table{
+			width:100%;
+			margin-top:2;
+		}
+		
+		.titulos{
+			color:white;
+			background: -o-linear-gradient(top, #3871C2, #21477E);
+			background: -webkit-linear-gradient(top, #3871C2, #21477E);
+			background: -moz-linear-gradient(top, #3871C2, #21477E);
+			background: -ms-linear-gradient(top, #3871C2, #21477E);
+			background:  linear-gradient(top, #3871C2, #21477E);
+			text-align:left;
+			text-transform: uppercase;
+			padding: 2px;
+		}
+		
+		</style>
+		
+		<body>
+		<header><p style="width:250px;height:70px;"><img src="imagenes/logo-cabecera.png" ></p></header>
+		<div class="cabecera"><h3>Orden de compra #1</h3></div>
+		<b>Nombre: </b>'.$datos['nombre'].'<br />
+		<b>Apellidos: </b>'.$datos['apellidos'].'<br />
+		<b>Email: </b>'.$datos['email'].'<br />
+		<b>Telefono: </b>'.$datos['telefono'].'<br />
+		<b>Ciudad: </b>'.$datos['ciudad'].'<br />
+		<b>Codigo postal: </b>'.$datos['cod_postal'].'<br />
+		<b>Direccion: </b>'.$datos['direccion'].'<br />
+		<div class="cabecera" style="margin-top:20;"><h3>Detalle de la compra</h3></div>
+		<table>
+			<tr>
+				<th class="titulos">Cantidad</th><th class="titulos">Producto</th><th class="titulos">Precio</th>
+			</tr>
+			'.$peliculas.'
+		</table>
+		<div class="cabecera" style="margin-top:20;"><h3>Opciones de Pago</h3></div>
+		Pago con Tarjeta
+		<br />
+		<div class="separador" style="margin-top:20;"></div>
+		<p style="text-align:right;width:100%;"><b>Total: </b>'.$precioT.'€</p>
+		<div class="cabecera" style="margin-top:20;"></div>
+		</body>
+		
+		
+		</div>
+		
+		';
+			return $cuerpo;
+		}
+		
+		
+		function enviarmail($cuerpo,$mail, $fecha, $nick){
+				$archivo=crearPdf($cuerpo, $fecha, $nick);
 				$email = new PHPMailer();
 				 $email->IsSMTP();// envío vía SMTP
 				$email->SMTPAuth = true; // turn on SMTP authentication
-				// $email->SMTPSecure = "ssl"; // sets the prefix to the server
+				//$email->SMTPSecure = "ssl"; // sets the prefix to the server
 				 $email->Host = 'smtp.gmail.com';
 				 $email->Port = 25;
 				$email->Username = 'impactfilmweb@gmail.com'; // SMTP username
 				$email->Password = 'proyectodaw';// SMTP password
 				$email->IsHTML(true); // send as HTML
-				$email->Body="Gracias por realizar su compra en ImpactFilm<br />$cadena";  // cuerpo del mensaje
+				$email->Body=$cuerpo;  // cuerpo del mensaje
 				 
 				// Introducimos la información del remitente del mensaje
 				 
@@ -70,8 +186,8 @@
 
 		
 	
-	function crearPdf($cadena, $id, $nick, $fecha){
-			class PDF extends FPDF{
+	function crearPdf($cuerpo, $fecha, $nick){
+		/*	class PDF extends FPDF{
 		// Cabecera de página
 		function Header(){
 			// Logo
@@ -117,6 +233,25 @@
 			$archivo="pdfs/venta".$nick."_".$num.".pdf";
 			$pdf->Output($archivo);
 			return $archivo;
-							
+			*/				
+		$mpdf=new mPDF('c','A4'); 
+		$fecha=substr($fecha,0,10);
+			$fecha = explode ("-", $fecha);
+			$dia = $fecha[2];
+			$mes = $fecha[1];
+			$anio = $fecha[0];
+		//$mpdf->SetDisplayMode('fullpage');
+		$mpdf->SetHeader('Factura de compra ImpactFilm||'); //'.$dia.'-'.$mes.'-'.$anio);
+		$mpdf->SetFooter('{1}');	/* defines footer for Odd and Even Pages - placed at Outer margin */
+		
+		$mpdf->WriteHTML($cuerpo);	// Separate Paragraphs  defined by font
+		$num=contadorVentas();
+		$archivo="pdfs/venta".$nick."_".$num.".pdf";
+		$mpdf->Output($archivo);
+
+		//exit;
+		
+		return $archivo;			
 		}
+		
 	?>
