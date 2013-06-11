@@ -374,7 +374,7 @@ INSERT INTO `USUARIOS` (`NICK`,`CLAVE`,`ROL`) VALUES ('david','daCXgamahQMkg','r
 INSERT INTO DATOS (ID_USUARIO,NOMBRE,APELLIDOS,TELEFONO,EMAIL,CIUDAD,DIRECCION,COD_POSTAL,PAIS,FECHA_NAC,SEXO) VALUES ('2','Fernando','Perez Llopis','91675858','hola@hsda.com','Madrid','Calle Paris n3','28830','España','1985-12-05','hombre');
 INSERT INTO DATOS (ID_USUARIO,NOMBRE,APELLIDOS,TELEFONO,EMAIL,PAIS,FECHA_NAC,SEXO) VALUES ('3','David','Marina Simon','916728888','marina@gmail.com','España','1987-04-16','hombre');
 INSERT INTO DATOS (ID_USUARIO,NOMBRE,APELLIDOS,TELEFONO,EMAIL,CIUDAD,DIRECCION,COD_POSTAL,PAIS,FECHA_NAC,SEXO) VALUES ('4','David','Diaz Casado','611664488','david@gmail.com','Madrid','Paseo Presa n5 1ºB','28830','España','1985-10-15','hombre');
-INSERT INTO `ventas` (`ID_PELICULA`, `ID_USUARIO`, `PELICULA`, `NICK`, `FECHA_HORA`, `CANTIDAD`) VALUES ('1', '2', 'El caballero oscuro: La leyenda renace', 'fer', '2013-04-28 00:00:00', '2');
+INSERT INTO `ventas` (`ID_PELICULA`, `ID_USUARIO`, `PELICULA`, `NICK`, `FECHA_HORA`, `CANTIDAD`) VALUES ('1', '2', 'El caballero oscuro: La leyenda renace', 'fer', '2013-06-11 00:00:00', '2');
 INSERT INTO `ventas` (`ID_PELICULA`, `ID_USUARIO`, `PELICULA`, `NICK`, `FECHA_HORA`, `CANTIDAD`) VALUES ('3', '2', 'Avatar', 'fer', '2013-04-28 00:00:00', '4');
 INSERT INTO `ventas` (`ID_PELICULA`, `ID_USUARIO`, `PELICULA`, `NICK`, `FECHA_HORA`, `CANTIDAD`) VALUES ('4', '2', 'Argo', 'fer', '2013-04-28 00:00:00', '5');
 INSERT INTO `ventas` (`ID_PELICULA`, `ID_USUARIO`, `PELICULA`, `NICK`, `FECHA_HORA`, `CANTIDAD`) VALUES ('6', '2', 'La vida de Pi', 'fer', '2013-04-28 00:00:00', '6');

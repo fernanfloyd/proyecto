@@ -4,7 +4,8 @@
 		//require('fpdf/fpdf.php');
 		include("MPDF/mpdf.php");
 		include_once('PHPMailer/class.phpmailer.php'); //incluimos la ruta a la clase phpmailer
-
+		include_once('PHPMailer/class.smtp.php');
+		
 		$pedido=json_decode($_GET['pedido'],true);
 		$pedido=json_decode($pedido,true);
 		$nick=$_SESSION['usuario'];
@@ -26,7 +27,7 @@
 		$cuerpo=crearHTML($cadena, $precioT, $fecha, $id);
 		$mail=obtenerMail($id);
 		enviarmail($cuerpo,$mail, $fecha,$nick);
-		
+	
 		echo "<script type='text/javascript' src='funciones/comprar.js'></script>";
 		echo "<script>";
 			echo "elimLista();";
@@ -109,7 +110,7 @@
 		
 		<body>
 		<header><p style="width:250px;height:70px;"><img src="imagenes/logo-cabecera.png" ></p></header>
-		<div class="cabecera"><h3>Orden de compra #1</h3></div>
+		<div class="cabecera"><h3>Orden de compra</h3></div>
 		<b>Nombre: </b>'.$datos['nombre'].'<br />
 		<b>Apellidos: </b>'.$datos['apellidos'].'<br />
 		<b>Email: </b>'.$datos['email'].'<br />
@@ -145,13 +146,14 @@
 				$email = new PHPMailer();
 				 $email->IsSMTP();// envío vía SMTP
 				$email->SMTPAuth = true; // turn on SMTP authentication
-				//$email->SMTPSecure = "ssl"; // sets the prefix to the server
+				//$email->SMTPDebug = 1;
+				$email->SMTPSecure = "tls"; // sets the prefix to the server
 				 $email->Host = 'smtp.gmail.com';
 				 $email->Port = 25;
 				$email->Username = 'impactfilmweb@gmail.com'; // SMTP username
 				$email->Password = 'proyectodaw';// SMTP password
 				$email->IsHTML(true); // send as HTML
-				$email->Body=$cuerpo;  // cuerpo del mensaje
+				$email->Body="<h1>Disfrute de su compra</h1>Aqui tiene toda la informacion sobre ella<br/>".$cuerpo;  // cuerpo del mensaje
 				 
 				// Introducimos la información del remitente del mensaje
 				 
@@ -161,9 +163,10 @@
 				 
 				// y los destinatarios del mensaje. Podemos especificar más de un destinatario
 				 $email->AddAddress($mail,$nick);
-				 $email->AddAttachment($archivo);// adjuntamos un imagen o un file opcional
-				 
+				$email->AddAttachment($archivo);// adjuntamos un imagen o un file opcional
+				// var_dump($email);die();
 				// se notifica si se ha enviado o no 
+				//$email->Send();
 				if(!$email->Send()) {
 				 
 				echo "Error de envío: " . $email->ErrorInfo;
