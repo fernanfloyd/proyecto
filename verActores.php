@@ -165,6 +165,16 @@
 						}
 				?>
 			<aside class="top10ventas">
+				<h1>Twitter</h1>
+				<hr />
+				 <a href="https://twitter.com/Impact_Film" class="twitter-follow-button" data-show-count="false" data-lang="es">Sigue a @Impact_Film</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				<br/>
+				<a class="twitter-timeline" height="400px" data-border-color="black" data-chrome="noscrollbar nofooter noheader" href="https://twitter.com/Impact_Film"  data-widget-id="344761264238632961">Tweets por @Impact_Film</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</aside>
+			
+			<!--<aside class="top10ventas">
 				<h1>Proximos estrenos</h1>
 				<hr />
 				<ul  class="asiEstadisticas" style="list-style:disc;-webkit-padding-start: 20px;line-height: 1.5em;">
@@ -176,7 +186,7 @@
 					<li>Epic: El reino secreto</li>
 					<li>After Earth</li>
 				</ul>
-			</aside>
+			</aside>-->
 			<aside class="top10ventas">
 				<h1>Top 10 ventas</h1>
 				<hr />

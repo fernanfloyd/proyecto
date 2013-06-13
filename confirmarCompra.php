@@ -167,7 +167,7 @@
 							echo "</aside>";
 						}
 				?>
-			<aside class="top10ventas">
+			<!--<aside class="top10ventas">
 				<h1>Proximos estrenos</h1>
 				<hr />
 				<ul  class="asiEstadisticas" style="list-style:disc;-webkit-padding-start: 20px;line-height: 1.5em;">
@@ -179,7 +179,7 @@
 					<li>Epic: El reino secreto</li>
 					<li>After Earth</li>
 				</ul>
-			</aside>
+			</aside>-->
 			<aside class="top10ventas">
 				<h1>Top 10 ventas</h1>
 				<hr />
