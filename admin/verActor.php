@@ -79,7 +79,6 @@
 					echo "<form enctype='multipart/form-data' id='formModActor' name='formModActor' action='modificarActor.php' method='post' onsubmit='return modifyActorConfirm()'>";
 					$id=$_GET['parametro'];
 					$actor=obtenerTodoActor($id);
-					//esto va sin formato, solo los datos
 					echo "<h1>".$actor['nombre']."</h1><hr />";
 					echo "<div class='cajaMostrar'>";
 					echo "<div class='cajaFoto'>";

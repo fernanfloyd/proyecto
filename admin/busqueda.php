@@ -75,7 +75,6 @@
 				else{
 					$busqueda=$_GET['s'];
 					echo "<br/><p>Resultados para la busqueda: <b>".$busqueda."</b></p>";
-					//PARA BUSCAR NOTICIAS
 					$consulta="SELECT DISTINCT(N.ID_NOTICIA) FROM NOTICIAS N, PELICULAS P WHERE N.ID_PELICULA=P.ID_PELICULA AND P.TITULO LIKE '%$busqueda%' OR N.TITULO LIKE '%$busqueda%' OR N.DESCRIPCION LIKE '$busqueda%' OR N.TEXTO_NOTICIA LIKE '$busqueda%';";
 					$i=0;
 					$IDS_NOTICIAS=array();

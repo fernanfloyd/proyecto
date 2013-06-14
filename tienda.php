@@ -12,7 +12,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css' />
 		<link href='http://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css' />		
 		<link rel="stylesheet" type="text/css" href="estilos/index.css" media="all"/>
-		<link rel="stylesheet" type="text/css" href="estilos/estrenos.css" media="all"/>
+		
 		<link rel="stylesheet" type="text/css" href="estilos/tienda.css" media="all"/>
 		<script language="javaScript" src="funciones/funciones.js"></script>
 		
@@ -277,19 +277,6 @@
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 			</aside>
 			
-			<!--<aside class="top10ventas">
-				<h1>Proximos estrenos</h1>
-				<hr />
-				<ul  class="asiEstadisticas" style="list-style:disc;-webkit-padding-start: 20px;line-height: 1.5em;">
-					<li>A todo gas 6</li>
-					<li>El ultimo testigo</li>
-					<li>Star Trek: En la oscuridad</li>
-					<li>R3sacón</li>
-					<li>Antes del anochecer</li>
-					<li>Epic: El reino secreto</li>
-					<li>After Earth</li>
-				</ul>
-			</aside>-->
 			<aside class="top10ventas">
 				<h1>Top 10 ventas</h1>
 				<hr />

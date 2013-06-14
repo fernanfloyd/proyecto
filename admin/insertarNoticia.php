@@ -35,15 +35,11 @@
     # Buscamos si el archivo que subimos tiene el MIME type que permitimos en nuestra subida
     if(!in_array($_FILES['fFotoNoticia']['type'], $mime )){
         $errorTipo=true;
-        //$mensaje="El archivo que estas subiendo no es válido, solo se aceptan imágenes con extensión JGP, JPEG, GIF y PNG";
-	//header("Location:respuesta.php?txt=$mensaje");
-    }
+        }
     # Indicamos hasta que peso de archivo puede subir el usuario.
     if($_FILES['fFotoNoticia']['size']>700000){//700Kb maximo
         $errorTamanio=true;
-        //$mensaje="El archivo que estas subiendo es demasiado grande. Como mucho puede ser de 60Kb";
-	//header("Location:respuesta.php?txt=$mensaje");
-    }
+        }
     # Si el archivo cumple con las expectativas quiere decir que la variable $error viene vacia y se ejecutará la función que colocaremos ahí
     if($errorTipo==false && $errorTamanio==false){
 	$nombreImagen=$_FILES['fFotoNoticia']['name'];
@@ -57,19 +53,4 @@
 	$mensaje="El archivo que estas subiendo es demasiado grande (como mucho puede ser de 1,5Mb) o es de un tipo desconocido (solo admite JGP, JPEG, GIF o PNG)";
 	header("Location:respuesta.php?txt=$mensaje");
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
 ?>

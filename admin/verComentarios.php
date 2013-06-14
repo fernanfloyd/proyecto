@@ -85,12 +85,10 @@
 					if(!empty($IDS)){
 						echo "<div class='cajaTablaPeliculas'>";
 							echo "<table id='hor-minimalist-b' summary='Employee Pay Sheet'><tr><th scope='col' style='text-align:left'>Peliculas</th><th scope='col'>Comentarios</th><th scope='col'>Ver comentarios</th></tr>";
-							//echo "<tbody>";	
 								foreach($IDS as $j){
 									$pelicula=obtenerDescPeli($j['idpeli']);
 									echo "<tr><td scope='row' style='text-align:left'>".$pelicula['titulo']."</td><td>".$j['num']."</td><td><p style='width:20px;height:20px;margin:0 auto;'><a href='verComentario.php?parametro=".$j['idpeli']."'><img src='../imagenes/comentario.png' style='width:20px;height:20px;' /></a></p></td></tr>";
 								}
-							//echo "</tbody>";	
 							echo "</table>";
 						echo "</div>";
 					}else{

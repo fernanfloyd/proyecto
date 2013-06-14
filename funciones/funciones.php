@@ -299,28 +299,12 @@
 	//CORRECTO
 	function correcto(){
 			$mensaje="Usuario registrado con exito";
-			//include 'respuesta.php';
 			header("Location:respuesta.php?txt=$mensaje");
-			//header('refresh:3; url=http://localhost:8080/proyecto/index.php');
 	}
 	
     //FUNCION PARA MODIFICAR LOS DATOS DE LOS ACTORES Y LAS PELICULAS EN LAS QUE APARECE
     function modificarActores($idActor, $imagen, $nombreApe, $fechaConvertida, $nacionalidad, $carrera, $pel){
 	nuevaConexionBd();
-	/*
-	*MOSTRAR LOS DATOS QUE RECIBE A MODO DE PRUEBA
-	echo "Id del actor/a: ".$idActor."<br/><br/>";
-	echo "Nombre de la imagen: ".$imagen."<br/><br/>";
-	echo "Nombre: ".$nombreApe."<br/><br/>";
-	echo "Fecha: ".$fechaConvertida."<br/><br/>";
-	echo "Nacionalidad ".$nacionalidad."<br/><br/>";
-	echo "Carrera: <br/>";
-	echo $carrera."<br/><br/>";
-	echo "Peliculas: <br/><br/>";
-	for($j=0;$j<count($pel);$j++){
-	    echo $pel[$j]."<br/>";
-	}*/
-
 	$consulta="UPDATE ACTORES SET NOMBRE_APE='$nombreApe', NACIONALIDAD='$nacionalidad', FECHA_NAC='$fechaConvertida', DESCRIPCION='$carrera', CARRERA='$carrera', IMAGEN='$imagen' WHERE ID_ACTOR='$idActor';";
 	$resultado=mysql_query($consulta) or die("Ha fallado la modificación de los datos del actor por el siguiente error: ".mysql_error()."<br/>");
 	
@@ -337,27 +321,6 @@
     
     function modificarPeliculas($idPelicula, $titulo, $estreno, $anio, $duracion, $director, $pais, $gen, $act, $criticaConvertida, $trailer, $precio, $imagen){
 	nuevaConexionBd();
-	/*
-	*MOSTRAR LOS DATOS QUE RECIBE A MODO DE PRUEBA
-	echo "Id de la pelicula: ".$idPelicula."<br/><br/>";
-	echo "Titulo: ".$titulo."<br/><br/>";
-	echo "Estreno: ".$estreno."<br/><br/>";
-	echo "Año: ".$anio."<br/><br/>";
-	echo "Duracion ".$duracion."<br/><br/>";
-	echo "Director: ".$director."<br/><br/>";
-	echo "Pais: ".$pais."<br/><br/>";
-	echo "Critica: ".$criticaConvertida."<br/><br/>";
-	echo "Trailer: ".$trailer."<br/><br/>";
-	echo "Precio: ".$precio."<br/><br/>";
-	echo "Generos elegidos: <br/>";
-	for($j=0;$j<count($gen);$j++){
-	    echo $gen[$j]."<br/>";
-	}
-	echo "<br/><br/>";
-	echo "Actores elegidos: <br/>";
-	for($j=0;$j<count($act);$j++){
-	    echo $act[$j]."<br/>";
-	}*/
 	
 	$consulta="UPDATE PELICULAS SET TITULO='$titulo', DESCRIPCION='$criticaConvertida', CRITICA='$criticaConvertida', ANIO='$anio', DURACION='$duracion', DIRECTOR='$director', PAIS='$pais', VIDEO='$trailer', ESTRENO='$estreno', PRECIO='$precio', IMAGEN='$imagen' WHERE ID_PELICULA='$idPelicula';";
 	$resultado=mysql_query($consulta) or die("Ha fallado la sentencia de modificación de los datos de la pelicula por el siguiente error: ".mysql_error()."<br/>");
@@ -383,15 +346,6 @@
     
     function modificarNoticias($idNoticia, $titulo, $fecha, $descripcion, $noticia, $actor, $pelicula, $imagen){
 	nuevaConexionBd();
-	/*
-	*MOSTRAR LOS DATOS QUE RECIBE A MODO DE PRUEBA
-	echo "Id de la noticia: ".$idNoticia."<br/><br/>";
-	echo "Titulo: ".$titulo."<br/><br/>";
-	echo "Fecha: ".$fecha."<br/><br/>";
-	echo "Descripcion: ".$descripcion."<br/><br/>";
-	echo "Noticia: ".$noticia."<br/><br/>";
-	echo "Actor: ".$actor."<br/><br/>";
-	echo "Pelicula: ".$pelicula."<br/><br/>";*/
 	
 	if(empty($pelicula) && empty($actor)){
 	    $consulta="UPDATE NOTICIAS SET TITULO='$titulo', DESCRIPCION='$descripcion', TEXTO_NOTICIA='$noticia', FECHA='$fecha', ID_PELICULA=null, ID_ACTOR=null, IMAGEN='$imagen' WHERE ID_NOTICIA='$idNoticia';";
@@ -418,18 +372,6 @@
     }
     
     function insertarActor($nombreApe, $nacionalidad, $fechaConvertida, $pel, $carrera, $nombreImagen){
-	/*echo "NOMBRE: ".$nombreApe."<br/><br/>";
-	echo "NACIONALIDAD: ".$nacionalidad."<br/><br/>";
-	echo "FECHA DE NACIMIENTO: ".$fechaConvertida."<br/><br/>";
-	echo "PELICULAS EN LAS QUE APARECE: <br/>";
-	for($j=0;$j<count($pel);$j++){
-	    echo $pel[$j]."<br/>";
-	}
-	echo "<br/>";
-	echo "CARRERA: <br/>";
-	echo $carrera;
-	echo "<br/><br/>";
-	echo $nombreImagen;*/
 	
 	nuevaConexionBd();
 	$consulta="INSERT INTO ACTORES (NOMBRE_APE, NACIONALIDAD, FECHA_NAC, DESCRIPCION, CARRERA, IMAGEN) VALUES ('$nombreApe', '$nacionalidad', '$fechaConvertida', '$carrera', '$carrera', '$nombreImagen');";
@@ -454,23 +396,6 @@
     }
     
     function insertarPelicula($titulo, $pais, $anio, $duracion, $director, $trailer, $precio, $estreno, $act, $criticaConvertida, $nombreCartel, $gen){
-	/*echo "TITULO: ".$titulo."<br/><br/>";
-	echo "PAIS: ".$pais."<br/><br/>";
-	echo "AÑO: ".$anio."<br/><br/>";
-	echo "DURACION: ".$duracion."<br/><br/>";
-	echo "DIRECTOR: ".$director."<br/><br/>";
-	echo "TRAILER: ".$trailer."<br/><br/>";
-	echo "PRECIO: ".$precio."<br/><br/>";
-	echo "ESTRENO: ".$estreno."<br/><br/>";
-	echo "ACTORES DE ESTA PELICULA: <br/>";
-	for($j=0;$j<count($act);$j++){
-	    echo $act[$j]."<br/>";
-	}
-	echo "<br/>";
-	echo "CRITICA: <br/>";
-	echo $criticaConvertida;
-	echo "<br/><br/>";
-	echo "NOMBRE DEL CARTEL: ".$nombreCartel;*/
 	
 	nuevaConexionBd();
 	$consulta="INSERT INTO PELICULAS (TITULO, DESCRIPCION, CRITICA, ANIO, DURACION, DIRECTOR, PAIS, IMAGEN, VIDEO, ESTRENO, PRECIO) VALUES ('$titulo', '$criticaConvertida', '$criticaConvertida', '$anio', '$duracion', '$director', '$pais', '$nombreCartel', '$trailer', '$estreno', '$precio');";
@@ -499,13 +424,6 @@
     }
 
     function insertarNoticia($titulo, $fechaConvertida, $idActor, $idPelicula, $descripcionConvertida, $textoNoticiaConvertida, $nombreImagen){
-	/*echo "TITULO: ".$titulo."<br/><br/>";
-	echo "FECHA: ".$fechaConvertida."<br/><br/>";
-	echo "ID ACTOR: ".$idActor."<br/><br/>";
-	echo "ID PELICULA: ".$idPelicula."<br/><br/>";
-	echo "DESCRIPCION: ".$descripcionConvertida."<br/><br/>";
-	echo "TEXTO NOTICIA: ".$textoNoticiaConvertida."<br/><br/>";
-	echo "NOMBRE IMAGEN: ".$nombreImagen."<br/><br/>";*/
 	
 	nuevaConexionBd();
 	if(empty($idActor) && empty($idPelicula)){

@@ -1,5 +1,4 @@
 <?php
-	//include_once("respuesta.php");
 	include("funciones/funciones.php");
 	include("funciones/top.php");
 	
@@ -194,7 +193,6 @@
 	
 	//Funcion que modifica los datos personales del usuario
 	function modificarDatosPersonales($consulta){
-		//msj("<br/>".$consulta."<br/><br/><br/>");
 		nuevaConexionBd();
 		$resultado=mysql_query($consulta) or die(msj("<br/>Error al modificar los datos personales del usuario: ".mysql_error()));
 		msj("<br/>Se han modificado con éxito los datos personales del usuario");
@@ -202,7 +200,6 @@
 	
 	//Funcion que modifica los datos de envio y pago del usuario
 	function modificarDatosEnvioPago($consulta){
-		//msj("<br/>".$consulta."<br/><br/><br/>");
 		nuevaConexionBd();
 		$resultado=mysql_query($consulta) or die(msj("<br/>Error al modificar los datos de envio y pago del usuario: ".mysql_error()));
 		msj("<br/>Se han modificado con éxito los datos de envio y pago del usuario");

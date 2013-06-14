@@ -71,7 +71,6 @@
 					if(empty($_GET['parametro'])){
 						$consulta="SELECT ID_NOTICIA  FROM NOTICIAS;";
 					}else{
-					//LA FECHA ME DA ERROR, MIRAR ALGUNO SI PODEIS
 						$a=$_GET['parametro'];
 						if($_GET['parametro']=="1"){
 							$consulta="SELECT ID_ACTOR FROM ACTORES WHERE ABS(TRUNC(MONTHS_BETWEEN(FECHA_NAC,SYSDATE)/12))<'60';";

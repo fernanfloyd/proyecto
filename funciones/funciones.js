@@ -7,19 +7,6 @@ jQuery(function($){
 		}
 	});
 	
-	
-	//Parar que en el cuadro de iniciar sesion, la flecha cambie de direcion dependiendo si la caja esta oculta o no
-	/*$("#ini").toggle(function(){
-		//alert($("#flechita").attr());
-		$(".flechita").attr("src", "imagenes/up_arrow.png");
-	},function(){
-		//alert($("#flechita").attr());
-		$(".flechita").attr("src", "imagenes/down_arrow.png");
-	});*/
-	
-	
-	
-
 });
 
 

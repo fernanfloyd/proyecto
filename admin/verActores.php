@@ -64,13 +64,6 @@
 			<section>
 				<h1>Administrar actores</h1>
 				<hr />
-				<!--
-					<a href="verActores.php">Tod@s</a>&nbsp;
-					<a href="verActores.php?parametro=1">Mayores de 60 años</a>&nbsp;
-					<a href="verActores.php?parametro=2">Entre 60 y 40 años</a>&nbsp;
-					<a href="verActores.php?parametro=3">Entre 40 y 20 años</a>&nbsp;
-					<a href="verActores.php?parametro=4">Menores de 20 años</a>&nbsp;
-				</p></div>-->
 				<div class="cajaSeleccion" style='background-color: white;'>
 					<p><a href="nuevoActor.php"><input type='button' class='botonRojo' name='bNuevoActor' id='bNuevoActor' value='Nuevo actor' /></a></p>
 				</div>
@@ -78,7 +71,6 @@
 					if(empty($_GET['parametro'])){
 						$consulta="SELECT ID_ACTOR  FROM ACTORES;";
 					}else{
-					//LA FECHA ME DA ERROR, MIRAR ALGUNO SI PODEIS
 						$a=$_GET['parametro'];
 						if($_GET['parametro']=="1"){
 							$consulta="SELECT ID_ACTOR FROM ACTORES WHERE ABS(TRUNC(MONTHS_BETWEEN(FECHA_NAC,SYSDATE)/12))<'60';";

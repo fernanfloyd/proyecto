@@ -70,7 +70,6 @@
 				<h1>Estadisticas</h1>
 				<hr />
 				<?php
-					// Standard inclusions   
 					include("pChart/pChart/pData.class");
 					include("pChart/pChart/pChart.class");
 				        nuevaConexionBd();

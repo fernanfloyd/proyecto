@@ -1,5 +1,4 @@
 <?php
-	//include_once("respuesta.php");
 	include("funciones/funciones.php");
 	include("funciones/top.php");
 	

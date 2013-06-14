@@ -56,29 +56,12 @@
 		}
 	}
 /*FIN AJAX2*/
-/*
-//variables
-var pwd=document.getElementById('pwd').value;
-var cpwd=document.getElementById('conpwd').value;
-var nom=document.getElementById('txtnombre').value;
-var ape=document.getElementById('txtapellidos').value;
-var tel=document.getElementById('txttelefono').value;
-var mail=document.getElementById('txtmail').value;
-var dire=document.getElementById('dire').value;
-var ciu=document.getElementById('ciudad').value;
-var codP=document.getElementById('codPos').value;
-var tar=document.getElementById('nTarj').value;
-	*/
+
 //VALIDAR FORMULARIO
 function validar(formulario){
-	//correcto=true;
 	if(valPass()&&valNomApe()&&valTel()&&valMail()&&valCod()&&valTar()){
 		formulario.submit();
 	}
-	/*if(correcto)//VALIDAR LOS DATOS
-		formulario.submit();
-	else
-		alert('El formulario no va a ser enviado');*/
 }
 
 function valPass(){
@@ -129,18 +112,7 @@ function valMail(){
 	}
 	return opc;
 }
-/*function valDire(){
-	opc=false;
-	var dire=document.getElementById('dire').value;
-	var ciu=document.getElementById('ciudad').value;
-	if((dire!=""&&ciu!="")||){
-		opc=true;
-	}else{
-		alert("Por favor, rellene correntamente los campos sobre su domicilio");
-		document.getElementById('dire').focus();
-	}	
-	return opc;
-}*/
+
 function valCod(){
 	opc=false;
 	var codP=document.getElementById('codPos').value;

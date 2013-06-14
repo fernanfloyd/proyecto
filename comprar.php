@@ -18,9 +18,6 @@
 			echo "<script>";
 			echo "anadirPro('$titulo','$imagen','$precio','$id');";
 			echo "</script>";
-			//$mensaje=$datos['titulo'].", ".$datos['imagen'].", ".$datos['precio'];
-			//header("Location:respuesta.php?txt=$mensaje");
-			//header("Location:tienda.php");
 		}
 	}
 

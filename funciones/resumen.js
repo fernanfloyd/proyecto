@@ -24,11 +24,6 @@ jQuery(function($){
 				document.location.href="venta.php?pedido="+pedido;
 			}  
 		});  
-	/*	if(confirm("Se va a realizar la compra\n¿Desea confirm/*ar la compra?")){
-			pedido=JSON.stringify(localStorage.COT_history);
-			pedido=encodeURIComponent(pedido);
-			document.location.href="venta.php?pedido="+pedido;
-		}*/
 	});
 	$("#botonTar").on("click", function(){
 		tarjeta=$("#nTarj").val();
@@ -46,7 +41,6 @@ jQuery(function($){
 	});
 });
 function valTar(){
-	//alert("gol");
 	opc=false;
 	var tar=document.getElementById('nTarj').value;
 	expreTa=/^[0-9]{16}$/;

@@ -39,7 +39,6 @@
 	</head>
 	<body onload="carga_inicial();carga_inicial_pais();deshabilitarCampos();">
 		
-		<!--<div class="contenedor">-->			
 			<header>
 				<a href="index.php"><img src="imagenes/logo-cabecera.png" title="ImpactFilm | Todo el cine a tu alcance" /></a>
 				<div class="saludo"> 
@@ -64,7 +63,6 @@
 					</div>
 				</div>
 			</header>
-		<!--</div>-->
 		<nav>
 		<div class="menu">
 			<div class="wrapper">
@@ -73,7 +71,7 @@
 					<li><a href="verNoticias.php">Noticias</a></li>
 					<li><a href="verEstrenos.php">Estrenos</a></li>
 					<li><a href="verPeliculas.php">Peliculas</a></li>
-					<li><a href="verActores.php">Actores<!--<b></b>--></a></li>
+					<li><a href="verActores.php">Actores</a></li>
 					<li><a href="#">Tienda</a></li>
 				</ul>
 				<div class="buscador">
