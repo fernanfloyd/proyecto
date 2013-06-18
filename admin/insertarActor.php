@@ -13,7 +13,7 @@
 	$dia = $fecha[0];
 	$mes = $fecha[1];
 	$anno = $fecha[2];
-        $fechaConvertida=$anno."-".$mes."-".$dia;
+    $fechaConvertida=$anno."-".$mes."-".$dia;
 	
 	
 	
@@ -37,12 +37,12 @@
     # Buscamos si el archivo que subimos tiene el MIME type que permitimos en nuestra subida
     if(!in_array($_FILES['fFotoActor']['type'], $mime )){
         $errorTipo=true;
+		}
+		# Indicamos hasta que peso de archivo puede subir el usuario.
+		if($_FILES['fFotoActor']['size']>60000){
+			$errorTamanio=true;
     }
-    # Indicamos hasta que peso de archivo puede subir el usuario.
-    if($_FILES['fFotoActor']['size']>60000){
-        $errorTamanio=true;
-    
-    # Si el archivo cumple con las expectativas quiere decir que la variable $error viene vacia y se ejecutará la función que colocaremos ahí
+			# Si el archivo cumple con las expectativas quiere decir que la variable $error viene vacia y se ejecutará la función que colocaremos ahí
     if($errorTipo==false && $errorTamanio==false){
 	$nombreImagen=$_FILES['fFotoActor']['name'];
 	$nombreTemporalImagen=$_FILES['fFotoActor']['tmp_name'];
@@ -55,7 +55,4 @@
 	$mensaje="El archivo que estas subiendo es demasiado grande (como mucho puede ser de 60Kb) o es de un tipo desconocido (solo admite JGP, JPEG, GIF o PNG)";
 	header("Location:respuesta.php?txt=$mensaje");
     }
-    
-    
-
-?>
+	

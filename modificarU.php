@@ -187,7 +187,7 @@
 		SET CLAVE='$passwordC'
 		WHERE ID_USUARIO='$idUsuario';";
 		mysql_query($consulta) or die(msj("<br/>Error al modificar la clave del usuario: ".mysql_error()));
-		msj("<br/>La clave del usuario ha sido modificada con éxito");
+		msj("<br/>La clave del usuario ha sido modificada con exito");
 	}
 	
 	
@@ -195,14 +195,14 @@
 	function modificarDatosPersonales($consulta){
 		nuevaConexionBd();
 		$resultado=mysql_query($consulta) or die(msj("<br/>Error al modificar los datos personales del usuario: ".mysql_error()));
-		msj("<br/>Se han modificado con éxito los datos personales del usuario");
+		msj("<br/>Se han modificado con exito los datos personales del usuario");
 	}
 	
 	//Funcion que modifica los datos de envio y pago del usuario
 	function modificarDatosEnvioPago($consulta){
 		nuevaConexionBd();
 		$resultado=mysql_query($consulta) or die(msj("<br/>Error al modificar los datos de envio y pago del usuario: ".mysql_error()));
-		msj("<br/>Se han modificado con éxito los datos de envio y pago del usuario");
+		msj("<br/>Se han modificado con exito los datos de envio y pago del usuario");
 	}
 	
 	
@@ -210,7 +210,7 @@
 	function anadirDatosEnvioPago($consulta){
 		nuevaConexionBd();
 		$resultado=mysql_query($consulta) or die(msj("<br/>Error al añadir los datos de envio y pago del usuario: ".mysql_error()));
-		msj("<br/>Se han añadido con éxito los datos de envio y pago del usuario");
+		msj("<br/>Se han añadido con exito los datos de envio y pago del usuario");
 	}
 	
 	
